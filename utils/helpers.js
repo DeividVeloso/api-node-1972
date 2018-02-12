@@ -1,5 +1,5 @@
 const debug = require('debug');
-export const normalize = val => {
+const normalize = val => {
   const port = parseInt(val, 10);
 
   if (isNaN(port)) {
@@ -13,7 +13,7 @@ export const normalize = val => {
   return false;
 };
 
-export const onError = error => {
+const onError = error => {
   if (error.syscall !== "listen") {
     throw error;
   }
@@ -35,9 +35,7 @@ export const onError = error => {
   }
 };
 
-export const onListening = () => {
-    const addr = server.address();
-    const bind = typeof addr === 'string' ? 'pipe ' + addr : 'pipe ' + addr.port;
-    debug('Listening on '  + bind);
+module.exports = {
+  normalize,
+  onError
 }
-
