@@ -2,8 +2,13 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const moongose = require('mongoose');
+
 const app = express();
 const router = express.Router();
+
+moongose.connect("mongodb://veloso:veloso@ds062448.mlab.com:62448/nodestoreveloso");
+
 const indexRoutes = require('./routes/index-route');
 const productRoutes = require('./routes/product-route');
 
