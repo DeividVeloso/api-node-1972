@@ -9,6 +9,10 @@ const router = express.Router();
 
 moongose.connect("mongodb://veloso:veloso@ds062448.mlab.com:62448/nodestoreveloso");
 
+//Carrega os Models
+const Product = require('./models/product');
+
+//Carrega as rotas
 const indexRoutes = require('./routes/index-route');
 const productRoutes = require('./routes/product-route');
 
